@@ -10,16 +10,20 @@ function setImage(className, diceNumber) {
   document.getElementsByClassName(className)[0].setAttribute("src", "images/dice" + diceNumber + ".png");
 }
 
-var player1 = getRandomInt(6) + 1;
-setImage("img1", player1);
+function playAGameOfDice() {
+  var player1 = getRandomInt(6) + 1;
+  setImage("img1", player1);
 
-var player2 = getRandomInt(6) + 1;
-setImage("img2", player2);
+  var player2 = getRandomInt(6) + 1;
+  setImage("img2", player2);
 
-if (player1 > player2) {
-  setHeading("Player 1 Wins!");
-} else if (player2 > player1) {
-  setHeading("Player 2 Wins!");
-} else {
-  setHeading("Draw!");
+  if (player1 > player2) {
+    setHeading("Player 1 Wins!");
+  } else if (player2 > player1) {
+    setHeading("Player 2 Wins!");
+  } else {
+    setHeading("Draw!");
+  }
 }
+
+setTimeout(playAGameOfDice, 1000);
