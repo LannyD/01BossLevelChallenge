@@ -1,25 +1,25 @@
+function setHeading(text) {
+  document.querySelector("h1").textContent = text;
+}
 
-function getRandomInt(max){
+function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
-var player1 = getRandomInt(6) + 1;
-document.getElementsByClassName("img1") [0].setAttribute("src", "images/dice" + player1 + ".png");
+function setImage(className, diceNumber) {
+  document.getElementsByClassName(className)[0].setAttribute("src", "images/dice" + diceNumber + ".png");
+}
 
+var player1 = getRandomInt(6) + 1;
+setImage("img1", player1);
 
 var player2 = getRandomInt(6) + 1;
-document.getElementsByClassName("img2")[0].setAttribute("src", "images/dice"+ player2+ ".png")
+setImage("img2", player2);
 
-
-if (player1 > player2){
-  document.querySelector("h1").textContent = "Player 1 Wins!";
-
-}
-else if (player2 > player1){
-  document.querySelector("h1").textContent = "Player 2 Wins!";
-
-}
-
-else{
-  document.querySelector("h1").textContent = "Draw!";
+if (player1 > player2) {
+  setHeading("Player 1 Wins!");
+} else if (player2 > player1) {
+  setHeading("Player 2 Wins!");
+} else {
+  setHeading("Draw!");
 }
